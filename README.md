@@ -1,4 +1,6 @@
 # Game-Scale
+Name: Bryan Cabrera Icte
+UDel Email: bryanci@udel.edu
 CISC108 Final Project
 
 Final Pitch of the game: 
