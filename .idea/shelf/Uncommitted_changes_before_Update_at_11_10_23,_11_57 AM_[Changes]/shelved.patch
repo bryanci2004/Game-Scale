@@ -1,0 +1,11 @@
+Index: bryan-README.md
+===================================================================
+diff --git a/bryan-README.md b/bryan-README.md
+deleted file mode 100644
+--- a/bryan-README.md	(revision b92ea8ad5c80ff90922ed4b5d67fcbfbde812bec)
++++ /dev/null	(revision b92ea8ad5c80ff90922ed4b5d67fcbfbde812bec)
+@@ -1,3 +0,0 @@
+-Name: Bryan Cabrera Icte
+-
+-UDel Email: bryanci@udel.edu
+\ No newline at end of file
