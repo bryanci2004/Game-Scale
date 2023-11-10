@@ -14,6 +14,8 @@ class UserPlayer:
     character: DesignerObject
     moving_right: bool
     moving_left: bool
+    moving_up: bool
+    moving_down: bool
 
 
 @dataclass
@@ -29,7 +31,7 @@ def create_world() -> World:
 def create_character(character_image: DesignerObject) -> UserPlayer:
     """ Create Player Image """
     # World is first initiated here with the field it needs
-    return UserPlayer(character_image, False, False)
+    return UserPlayer(character_image, False, False, False, False)
 
 
 # ----------------------------------------------------------------------------------------#
@@ -39,6 +41,10 @@ def press_moving_keys(world: World, key: str):
         horizontal_right_move(world.main_character)
     if key == 'left':
         horizontal_left_move(world.main_character)
+    if key == 'up':
+        vertical_move_up(world.main_character)
+    if key == 'down':
+        vertical_move_down(world.main_character)
 
 
 def release_moving_keys(world: World, key: str):
@@ -47,16 +53,28 @@ def release_moving_keys(world: World, key: str):
         stop_horizontal_right_move(world.main_character)
     if key == 'left':
         stop_horizontal_left_move(world.main_character)
+    if key == 'up':
+        stop_vertical_move_up(world.main_character)
+    if key == 'down':
+        stop_vertical_move_down(world.main_character)
 
 
 def handle_movement(world: World):
     if world.main_character.moving_right:
-        move_character(world.main_character, USER_SPEED)
+        move_character_horizontal(world.main_character, USER_SPEED)
     if world.main_character.moving_left:
-        move_character(world.main_character, -USER_SPEED)
+        move_character_horizontal(world.main_character, -USER_SPEED)
+    if world.main_character.moving_up:
+        move_character_vertical(world.main_character, -USER_SPEED)
+    if world.main_character.moving_down:
+        move_character_vertical(world.main_character, USER_SPEED)
 
 
-def move_character(user_character: UserPlayer, character_speed: int):
+def move_character_vertical(user_character: UserPlayer, character_speed: int):
+    user_character.character.y += character_speed
+
+
+def move_character_horizontal(user_character: UserPlayer, character_speed: int):
     user_character.character.x += character_speed
 
 
@@ -68,12 +86,28 @@ def horizontal_left_move(user_character: UserPlayer):
     user_character.moving_left = True
 
 
+def vertical_move_up(user_character: UserPlayer):
+    user_character.moving_up = True
+
+
+def vertical_move_down(user_character: UserPlayer):
+    user_character.moving_down = True
+
+
 def stop_horizontal_right_move(user_character: UserPlayer):
     user_character.moving_right = False
 
 
 def stop_horizontal_left_move(user_character: UserPlayer):
     user_character.moving_left = False
+
+
+def stop_vertical_move_up(user_character: UserPlayer):
+    user_character.moving_up = False
+
+
+def stop_vertical_move_down(user_character: UserPlayer):
+    user_character.moving_down = False
 
 
 # ----------------------------------------------------------------------------------------#
