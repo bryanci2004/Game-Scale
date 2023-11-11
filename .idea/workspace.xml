@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad188a77-80ad-42e0-9421-300f5ce03f43" name="Changes" comment="Test Push to confirm this is the right way to get the README file to display what I want." />
+    <list default="true" id="ad188a77-80ad-42e0-9421-300f5ce03f43" name="Changes" comment="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -238,6 +239,7 @@
       <workItem from="1699565683914" duration="5453000" />
       <workItem from="1699574570748" duration="5000" />
       <workItem from="1699635385108" duration="294000" />
+      <workItem from="1699635698854" duration="7397000" />
     </task>
     <task id="LOCAL-00001" summary="Test Push to confirm this is the right way to get the README file to display what I want.">
       <option name="closed" value="true" />
@@ -263,7 +265,39 @@
       <option name="project" value="LOCAL" />
       <updated>1699635417586</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Before the updated version of this file. The game had the user character working, however, I want to be able to make the player move constantly while holding an arrow button. After further research, I came to the reallization that I will need to make a dataclass for the player and world. Later today I will finish making the player moveable by holding an arrow button and add the environment in which the player will be in.">
+      <option name="closed" value="true" />
+      <created>1699635808330</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699635808330</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update: November 10, 2023 at 6:20PM&#10;&#10;The character has been updated. The player is now able to move left and right. The next step is to get the player to move up and down. That will come with the next update!">
+      <option name="closed" value="true" />
+      <created>1699658296342</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699658296342</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update: November 10, 2023 at 6:35PM&#10;&#10;The character has been updated. The player is now able to move left and right AND up and down. The next step is to get the environment ready. Constraints to keep the user in the world will come with the next milestone. But, for now getting an environment is the goal. Due to the nature of the game this is going to be hand sketched.">
+      <option name="closed" value="true" />
+      <created>1699659358971</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699659358971</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game.">
+      <option name="closed" value="true" />
+      <created>1699663969399</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699663969399</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,9 +306,13 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Test Push to confirm this is the right way to get the README file to display what I want." />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Push to confirm this is the right way to get the README file to display what I want." />
+    <MESSAGE value="Before the updated version of this file. The game had the user character working, however, I want to be able to make the player move constantly while holding an arrow button. After further research, I came to the reallization that I will need to make a dataclass for the player and world. Later today I will finish making the player moveable by holding an arrow button and add the environment in which the player will be in." />
+    <MESSAGE value="Update: November 10, 2023 at 6:20PM&#10;&#10;The character has been updated. The player is now able to move left and right. The next step is to get the player to move up and down. That will come with the next update!" />
+    <MESSAGE value="Update: November 10, 2023 at 6:35PM&#10;&#10;The character has been updated. The player is now able to move left and right AND up and down. The next step is to get the environment ready. Constraints to keep the user in the world will come with the next milestone. But, for now getting an environment is the goal. Due to the nature of the game this is going to be hand sketched." />
+    <MESSAGE value="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1699572801856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1699663628852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
