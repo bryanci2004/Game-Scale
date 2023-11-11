@@ -4,7 +4,7 @@ from designer import *
 # from random import randint
 
 USER_SPEED = 5
-WORLD_IMAGE = background_image('game_background.png')
+WORLD_IMAGE = background_image('Final_Crumbled_background.jpg')
 CHARACTER_PLAYER = image('running_stick_man.png')
 
 
@@ -61,8 +61,10 @@ def release_moving_keys(world: World, key: str):
 
 def handle_movement(world: World):
     if world.main_character.moving_right:
+        world.main_character.character.flip_x = False
         move_character_horizontal(world.main_character, USER_SPEED)
     if world.main_character.moving_left:
+        world.main_character.character.flip_x = True
         move_character_horizontal(world.main_character, -USER_SPEED)
     if world.main_character.moving_up:
         move_character_vertical(world.main_character, -USER_SPEED)
