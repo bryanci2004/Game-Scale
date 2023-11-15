@@ -16,7 +16,7 @@ CISC108 Final Project
 ## Phase 1:
 - [x] **Character Exist:** Create a player that appears on the screen
 - [x] **Movable Character:** The user's character moves around using arrow keys around the screen and doesn't surpass the border
-- [x] **Create Environment:** Create the environment in which the user will play, but doesn't have restrictions. Just for appearance purposes
+- [x] **Create Environment:** Create the environment in which the user will play, but doesn't have restrictions. Just for appearance purposes(Credits for drawing: Kaitlyn Johnson)
 - [x] YouTube Video Link: https://youtu.be/NS7mriEtCls
 ## Phase 2:
 - [ ] **The environment affects the player:** Make the environment create restrictions. The player cannot fall off, but borders are keeping contained in an area.
