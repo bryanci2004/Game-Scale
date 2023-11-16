@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ad188a77-80ad-42e0-9421-300f5ce03f43" name="Changes" comment="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/running_stick_man.png" beforeDir="false" afterPath="$PROJECT_DIR$/running_stick_man.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -56,7 +63,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;updating__file__branch&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -110,6 +117,11 @@
       <workItem from="1699635698854" duration="7397000" />
       <workItem from="1699664001877" duration="201000" />
       <workItem from="1699664205594" duration="4000" />
+      <workItem from="1699664243702" duration="635000" />
+      <workItem from="1699665627610" duration="947000" />
+      <workItem from="1699978630144" duration="177000" />
+      <workItem from="1699980109305" duration="1589000" />
+      <workItem from="1700065997015" duration="13072000" />
     </task>
     <task id="LOCAL-00001" summary="Test Push to confirm this is the right way to get the README file to display what I want.">
       <option name="closed" value="true" />
@@ -175,7 +187,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699664145295</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game.">
+      <option name="closed" value="true" />
+      <created>1699664523076</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699664523076</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game.">
+      <option name="closed" value="true" />
+      <created>1699664558738</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699664558738</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +219,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1699664129964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1700095800783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
