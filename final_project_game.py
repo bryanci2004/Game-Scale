@@ -121,7 +121,7 @@ def stop_vertical_move_down(user_character: UserPlayer):
 
 
 # ----------------------------------------------------------------------------------------#
-def showing_coordinates(world: World, x_cor: int, y_cor: int):
+def showing_coordinates(x_cor: int, y_cor: int):
     print("X Coordinate: ", str(x_cor))
     print("Y Coordinate: ", str(y_cor))
 
@@ -154,7 +154,7 @@ when('typing', press_moving_keys)
 when('clicking', showing_coordinates)
 when('done typing', release_moving_keys)
 when('updating', handle_movement)
-#when('updating', game_gravity)
+# when('updating', game_gravity)
 when('updating', border_restraining)
 
 start()
