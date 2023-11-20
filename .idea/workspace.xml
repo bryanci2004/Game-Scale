@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad188a77-80ad-42e0-9421-300f5ce03f43" name="Changes" comment="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game.">
+    <list default="true" id="ad188a77-80ad-42e0-9421-300f5ce03f43" name="Changes" comment="Update: November 16, 2023 at 11:12AM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)">
+      <change afterPath="$PROJECT_DIR$/magnify_power_up_transparent.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_23,_11_57 AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_23__11_57AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final_project_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/running_stick_man.png" beforeDir="false" afterPath="$PROJECT_DIR$/running_stick_man.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;updating__file__branch&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;making__gravity__branch&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -121,7 +123,9 @@
       <workItem from="1699665627610" duration="947000" />
       <workItem from="1699978630144" duration="177000" />
       <workItem from="1699980109305" duration="1589000" />
-      <workItem from="1700065997015" duration="13072000" />
+      <workItem from="1700065997015" duration="15580000" />
+      <workItem from="1700362769342" duration="148000" />
+      <workItem from="1700362935953" duration="6339000" />
     </task>
     <task id="LOCAL-00001" summary="Test Push to confirm this is the right way to get the README file to display what I want.">
       <option name="closed" value="true" />
@@ -203,7 +207,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699664558738</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update: November 15, 2023 at 7:57PM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)">
+      <option name="closed" value="true" />
+      <created>1700096305325</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700096305325</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update: November 16, 2023 at 11:12AM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)">
+      <option name="closed" value="true" />
+      <created>1700151174286</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700151174287</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,9 +236,11 @@
     <MESSAGE value="Update: November 10, 2023 at 6:20PM&#10;&#10;The character has been updated. The player is now able to move left and right. The next step is to get the player to move up and down. That will come with the next update!" />
     <MESSAGE value="Update: November 10, 2023 at 6:35PM&#10;&#10;The character has been updated. The player is now able to move left and right AND up and down. The next step is to get the environment ready. Constraints to keep the user in the world will come with the next milestone. But, for now getting an environment is the goal. Due to the nature of the game this is going to be hand sketched." />
     <MESSAGE value="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game." />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Milestone 1 Update: November 10, 2023 at 7:47PM&#10;&#10;The character has been updated to flip in the direction of movement. In the next milestone, I plan to make the character more animated by adding a picture of the stickman jumping when you make it jump. I have added the background, however, this is a rough sketch of what the final environment will be. The game still doesn't have restrictions, however, I plan to add them soon. Many aspects of the game are to be determined. Overall, this final Mileston 1 product is a rough sketch of the game. I'm not sure on the title and the litte aspects of the game, however, I think I'm going to be sticking to the stickman/animated idea of the game." />
+    <MESSAGE value="Update: November 15, 2023 at 7:57PM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)" />
+    <MESSAGE value="Update: November 16, 2023 at 11:12AM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: November 16, 2023 at 11:12AM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1700095800783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1700442538282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
