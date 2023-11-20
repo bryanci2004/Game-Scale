@@ -22,7 +22,8 @@ CISC108 Final Project
 - [1/2] **The environment affects the player:** Make the environment create restrictions. The player cannot fall off, but borders are keeping contained in an area.
 - [1/2] **Create obstacles that appear for the character** What creates the game is avoiding the obstacles, so this will be implemented
 - [1/2] **Pause/Reset Button** Not entirely sure if this will happen as writing this, or if it will be implemented. But a pause/reset button would be useful
-- [1/2] **Create Powerups:** Powerups will appear in certain areas at random times. 
+- [1/2] **Create Powerups:** Powerups will appear in certain areas at random times.
+- [x] 2nd YouTube Video Link: https://youtu.be/c6HLUU0SNUM
 ## Phase 3:
 - [ ] **User can 'die':** If the user hits one of the obstacles, the game will restart
 - [ ] **A timer:** The game's objective is to finish the game as fast as possible. So a visual timer will be on screen and will pause when the pause button is clicked and finish when the round ends
