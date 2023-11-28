@@ -141,7 +141,7 @@ def move_character_horizontal(user_character: Player, character_speed: int):
 
 
 def handle_movement(overworld: World):
-    instance_y = 0
+    # instance_y = 0
     if overworld.main_character.moving_right:
         overworld.main_character.character.flip_x = False
         move_character_horizontal(overworld.main_character, MOVING_SPEED)
