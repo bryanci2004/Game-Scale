@@ -7,16 +7,20 @@ Y_GRAVITY = 1
 JUMP_HEIGHT = 20
 Y_VELOCITY = JUMP_HEIGHT
 '''
-MOVING_SPEED = 7
+MOVING_SPEED = 10
+
 JUMPING_HEIGHT = 100
+
 GRAVITY = 1
+
 Y_VELOCITY = 200
+
 starting_pos_x, starting_pos_y = 75, 502  # This is for the character
 
 BIGGER_POWER_UP_IMAGE = image('magnify_power_up_transparent.png')
 WORLD_IMAGE = background_image('Final_Crumbled_background.jpg')
 CHARACTER_PLAYER = image('running_stick_man.png', starting_pos_x, starting_pos_y)
-CENTER_DOT = circle('red', 3, 30, 12)
+CENTER_DOT = circle('red', 3, 78, 472)
 
 
 # ----------------------------------------------------------------------------------------#
@@ -140,20 +144,20 @@ def move_character_horizontal(user_character: Player, character_speed: int):
     user_character.character.x += user_character.moving_speed
 
 
-def handle_movement(overworld: World):
+def handle_movement(world: World):
     # instance_y = 0
-    if overworld.main_character.moving_right:
-        overworld.main_character.character.flip_x = False
-        move_character_horizontal(overworld.main_character, MOVING_SPEED)
-    if overworld.main_character.moving_left:
-        overworld.main_character.character.flip_x = True
-        move_character_horizontal(overworld.main_character, -MOVING_SPEED)
-    if overworld.main_character.moving_up:
-        if overworld.main_character.moving_up_int == 0:
-            overworld.main_character.moving_up_int += 1
-            if overworld.main_character.moving_up_int == 1:
-                jumping_action(overworld, overworld.main_character.character.y)
-                overworld.main_character.moving_up_int += 1
+    if world.main_character.moving_right:
+        world.main_character.character.flip_x = False
+        move_character_horizontal(world.main_character, MOVING_SPEED)
+    if world.main_character.moving_left:
+        world.main_character.character.flip_x = True
+        move_character_horizontal(world.main_character, -MOVING_SPEED)
+    if world.main_character.moving_up:
+        if world.main_character.moving_up_int == 0:
+            world.main_character.moving_up_int += 1
+            if world.main_character.moving_up_int == 1:
+                jumping_action(world, world.main_character.character.y)
+                world.main_character.moving_up_int += 1
     '''
         if world.main_character.moving_up_int == 2:
         instance_y = world.main_character.character.y
