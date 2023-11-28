@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad188a77-80ad-42e0-9421-300f5ce03f43" name="Changes" comment="Update: November 16, 2023 at 11:12AM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)">
-      <change afterPath="$PROJECT_DIR$/magnify_power_up_transparent.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_23,_11_57 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_23__11_57AM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="ad188a77-80ad-42e0-9421-300f5ce03f43" name="Changes" comment="Update: November 19, 2023 at 8:28PM&#10;&#10;In this update the player has been updated to attempt jumping. I'm not sure if I'll be able to finish the gravity, power-ups, pause/resume button/screen, and the environment affecting the player, but the raw ideas have been implemented. There is a pause button in the screen, but it doesn't have a function yet in this update. The code is a bit messy, but I plan to organize the code and make it more appealing tomorrow.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final_project_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_game.py" afterDir="false" />
     </list>
@@ -26,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="making_gravity_branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +62,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;making__gravity__branch&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;milestone__2__branch&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -126,6 +123,8 @@
       <workItem from="1700065997015" duration="15580000" />
       <workItem from="1700362769342" duration="148000" />
       <workItem from="1700362935953" duration="6339000" />
+      <workItem from="1700444463187" duration="3119000" />
+      <workItem from="1701188156788" duration="5289000" />
     </task>
     <task id="LOCAL-00001" summary="Test Push to confirm this is the right way to get the README file to display what I want.">
       <option name="closed" value="true" />
@@ -229,6 +228,29 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="milestone_2_branch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Test Push to confirm this is the right way to get the README file to display what I want." />
@@ -241,6 +263,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update: November 16, 2023 at 11:12AM&#10;&#10;The character has been updated to have restrictions. The character can't go past the right and left border. HOWEVER, this only applies in the first floor. I have to modify the 'border restraining' function to be manipulated and only restrain a certain way for specific floors. I also intend to add gravity, however, at the time of writing this I need to figure that part out. This version of the code is function and has restrictions for the first floor. I also added a red dot for reference of coordinates on the plane. This has helped make the restrictions. There is still much work to be done :)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1700442538282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Game_Scale$final_project_game.coverage" NAME="final_project_game Coverage Results" MODIFIED="1701195816913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
