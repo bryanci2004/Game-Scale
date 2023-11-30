@@ -1,23 +1,12 @@
 from dataclasses import dataclass
 from designer import *
-# from random import randint
+from random import randint
 
-'''
-Y_GRAVITY = 1
-JUMP_HEIGHT = 20
-Y_VELOCITY = JUMP_HEIGHT
-'''
 MOVING_SPEED = 10
-
-JUMPING_HEIGHT = 100
-
-GRAVITY = 1
-
-Y_VELOCITY = 200
 
 starting_pos_x, starting_pos_y = 75, 502  # This is for the character
 
-BIGGER_POWER_UP_IMAGE = image('magnify_power_up_transparent.png')
+# BIGGER_POWER_UP_IMAGE = image('magnify_power_up_transparent.png')
 WORLD_IMAGE = background_image('Final_Crumbled_background.jpg')
 CHARACTER_PLAYER = image('running_stick_man.png', starting_pos_x, starting_pos_y)
 CENTER_DOT = circle('red', 3, 78, 472)
@@ -47,7 +36,7 @@ class Button:
 class World:
     main_character: Player
     center_dot: DesignerObject
-    powerup: list[DesignerObject]
+    powerup_list: list[DesignerObject]
     pause_button: Button
 
 
@@ -55,6 +44,8 @@ class World:
 class PauseScreen:
     header: DesignerObject
     resume_button: Button
+
+
 # ----------------------------------------------------------------------------------------#
 
 
@@ -109,17 +100,6 @@ def create_character(character_image: DesignerObject) -> Player:
 
 
 # ----------------------------------------------------------------------------------------#
-
-def check_user_height(world: World, check_y: int):
-    if world.main_character.character.y < check_y:
-        glide_down(world.main_character.character, JUMPING_HEIGHT)
-
-
-def jumping_action(world: World, previous_y: int):
-    if world.main_character.character.y > previous_y - 20:
-        glide_up(world.main_character.character, JUMPING_HEIGHT)
-
-
 def release_moving_keys(world: World, key: str):
     main_character = world.main_character
     """When either right/left key is let go of, the character will stop moving that direction"""
@@ -144,8 +124,16 @@ def move_character_horizontal(user_character: Player, character_speed: int):
     user_character.character.x += user_character.moving_speed
 
 
+JUMPING_HEIGHT = 12
+
+GRAVITY = 1
+
+JUMPING_SPEED = JUMPING_HEIGHT
+
+
 def handle_movement(world: World):
     # instance_y = 0
+    global JUMPING_SPEED, GRAVITY
     if world.main_character.moving_right:
         world.main_character.character.flip_x = False
         move_character_horizontal(world.main_character, MOVING_SPEED)
@@ -153,17 +141,11 @@ def handle_movement(world: World):
         world.main_character.character.flip_x = True
         move_character_horizontal(world.main_character, -MOVING_SPEED)
     if world.main_character.moving_up:
-        if world.main_character.moving_up_int == 0:
-            world.main_character.moving_up_int += 1
-            if world.main_character.moving_up_int == 1:
-                jumping_action(world, world.main_character.character.y)
-                world.main_character.moving_up_int += 1
-    '''
-        if world.main_character.moving_up_int == 2:
-        instance_y = world.main_character.character.y
-        check_user_height(world, instance_y)
-        world.main_character.moving_up_int = 0
-    '''
+        world.main_character.character.y -= JUMPING_SPEED
+        JUMPING_SPEED -= 1
+        if JUMPING_SPEED < -12:
+            world.main_character.moving_up = False
+            JUMPING_SPEED = 12
 
 
 # ----------------------------------------------------------------------------------------#
@@ -185,18 +167,21 @@ def border_restraining(world: World):
 
 # ----------------------------------------------------------------------------------------#
 def create_power_up() -> DesignerObject:
-    power_up = BIGGER_POWER_UP_IMAGE
-    power_up.x = 200
-    power_up.y = 300
+    power_up = image('magnify_power_up_transparent.png')
+    power_up.x = randint(41, 537)
+    power_up.y = 368
     return power_up
 
 
-def make_powerup(world: World, key: str):
-    world_list_powerup = world.powerup
-    if key == 'j':
+def make_powerup(world: World):
+    magic_number = 7
+    mystery_num = randint(0, 200)
+    world_list_powerup = world.powerup_list
+    world_list_powerup_length = len(world.powerup_list)
+    if mystery_num == magic_number and world_list_powerup_length < 2:
         world_list_powerup.append(create_power_up())
-        world.powerup = world_list_powerup
-        print(world.powerup)
+        world.powerup_list = world_list_powerup
+        print(world.powerup_list)
 
 
 '''
@@ -217,7 +202,7 @@ when('clicking: world', handle_world_buttons)
 when('starting: pause', create_pause_screen)
 when('clicking: pause', handle_pause_screen_buttons)
 when('typing: world', press_moving_keys)
-when('typing: world', make_powerup)
+when('updating: world', make_powerup)
 when('done typing: world', release_moving_keys)
 when('updating: world', handle_movement)
 when('updating: world', border_restraining)
