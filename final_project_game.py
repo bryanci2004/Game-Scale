@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from designer import *
 from random import randint
 
-MOVING_SPEED = 10
+MOVING_SPEED = 11
 
 starting_pos_x, starting_pos_y = 75, 502  # This is for the character
 
