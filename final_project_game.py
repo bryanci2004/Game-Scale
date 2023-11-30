@@ -132,7 +132,7 @@ JUMPING_SPEED = JUMPING_HEIGHT
 
 
 def handle_movement(world: World):
-    instance_y = 0
+    # instance_y = 0
     global JUMPING_SPEED, GRAVITY
     if world.main_character.moving_right:
         world.main_character.character.flip_x = False
