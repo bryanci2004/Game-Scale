@@ -1,20 +1,17 @@
-"""[1] - https://www.youtube.com/watch?v=am2Tb_tj8zM(This video helps
+"""[1] - https://www.youtube.com/watch?v=am2Tb_tj8zM (This video helps
 teach how to implement jumping into your game clearly. Very useful video)"""
 
 from dataclasses import dataclass
 from designer import *
 from random import randint
 
-GLOBAL_MOVING_SPEED = 5
+GLOBAL_MOVING_SPEED = 10
 
 WORLD_IMAGE = background_image('LADDER_WORLD_MAP.jpg')
 
 starting_pos_x, starting_pos_y = 75, 494  # This is for the character
 CHARACTER_PLAYER_IMAGE = image('running_stick_man.png', starting_pos_x, starting_pos_y)
 CHARACTER_PLAYER_IMAGE.scale = .02
-
-character_designer_group = group(rectangle('seagreen', 32, 61, 75, 494, border=1),
-                                 circle('blue', 3, starting_pos_x, starting_pos_y), CHARACTER_PLAYER_IMAGE)
 
 
 # ----------------------------------------------------------------------------------------#
@@ -39,12 +36,12 @@ class Button:
 @dataclass
 class World:
     main_character: Player
-    center_dot: DesignerObject
     magnifying_glass_list: list[DesignerObject]
     eraser_list: list[DesignerObject]
     tape_list: list[DesignerObject]
     pause_button: Button
     ladder_list: list[DesignerObject]
+    crown: DesignerObject
 
 
 @dataclass
@@ -53,7 +50,21 @@ class PauseScreen:
     resume_button: Button
 
 
+@dataclass
+class GameOverScreen:
+    header: DesignerObject
+    end_game_button: Button
+
+
+@dataclass
+class WinningScreen:
+    header: DesignerObject
+    quit_game_button: Button
+
+
 # ----------------------------------------------------------------------------------------#
+
+
 def create_world() -> World:
     """
     This function is what starts the entire game. It will create the world
@@ -62,11 +73,13 @@ def create_world() -> World:
     Returns:
         World: The world/game
     """
-    return World(create_character(character_designer_group), circle('red', 3, starting_pos_x, starting_pos_y - 41), [],
+    return World(create_character(CHARACTER_PLAYER_IMAGE), [],
                  [], [],
-                 make_button("Pause", 30, 12), [
-                     hide(create_ladder_rectangles(577, 453, 146)), hide(create_ladder_rectangles(356, 343, 78)),
-                     hide(create_ladder_rectangles(597, 244, 124)), hide(create_ladder_rectangles(235, 121, 128))])
+                 make_button("Pause", 30, 12),
+                 [hide(create_ladder_rectangles(577, 453, 146)),
+                  hide(create_ladder_rectangles(356, 343, 78)),
+                  hide(create_ladder_rectangles(597, 244, 124)),
+                  hide(create_ladder_rectangles(235, 121, 128))], emoji('👑', 630, 39))
 
 
 def create_ladder_rectangles(x_cor: int, y_cor: int, height: int) -> DesignerObject:
@@ -122,9 +135,9 @@ def make_button(message: str, x: int, y: int) -> Button:
     horizontal_padding = 4
     vertical_padding = 2
     label = text("black", message, 20, x, y, layer='top')
-    return Button(rectangle("lightgreen", label.width + horizontal_padding, label.height + vertical_padding, x, y),
-                  rectangle("black", label.width + horizontal_padding, label.height + vertical_padding, x, y, 1),
-                  label)
+    return Button(rectangle("lightgreen", label.width + horizontal_padding, label.height + vertical_padding, x, y)
+                  , rectangle("black", label.width + horizontal_padding, label.height + vertical_padding, x, y,
+                              1), label)
 
 
 # ----------------------------------------------------------------------------------------#
@@ -189,6 +202,29 @@ def handle_pause_screen_buttons(pause_screen: PauseScreen):
 
 
 # ----------------------------------------------------------------------------------------#
+def create_game_over_screen():
+    """
+    This function creates the game-over screen.
+    """
+    return GameOverScreen(text("red", "GAME OVER! Thank you for playing!", 40),
+                          make_button("End the Game!", get_width() / 2, 400))
+
+
+def handle_game_over_screen_buttons(game_over_screen: GameOverScreen):
+    """This function handles the game-over screen buttons"""
+    if colliding_with_mouse(game_over_screen.end_game_button.background):
+        quit()
+
+
+# ----------------------------------------------------------------------------------------#
+def create_winner_screen():
+    return WinningScreen(text("green", "Congratulations you win!", 40),
+                         make_button("Quit to Desktop", get_width() / 2, 400))
+
+
+def handle_winner_screen_buttons(winning_screen: WinningScreen):
+    if colliding_with_mouse(winning_screen.quit_game_button.background):
+        quit()
 
 
 # ----------------------------------------------------------------------------------------#
@@ -238,6 +274,7 @@ def press_moving_keys(world: World, key: str):
         main_character.moving_up_bool = True
 
 
+# ----------------------------------------------------------------------------------------#
 def move_character_horizontal(user_character: Player, character_speed: int):
     """
     This is a handler function. This function handles the horizontal movement from the character.
@@ -253,8 +290,8 @@ def move_character_horizontal(user_character: Player, character_speed: int):
     user_character.moving_speed = character_speed
     user_character.character_image.x += user_character.moving_speed
 
-
-JUMPING_HEIGHT = 12
+# Global variables for jumping
+JUMPING_HEIGHT = 14
 GRAVITY = 2
 
 
@@ -283,9 +320,9 @@ def handle_movement(world: World):
     if main_character.moving_up_bool:
         main_character.character_image.y -= JUMPING_HEIGHT
         JUMPING_HEIGHT -= GRAVITY
-        if JUMPING_HEIGHT < -12:
+        if JUMPING_HEIGHT < -14:
             world.main_character.moving_up_bool = False
-            JUMPING_HEIGHT = 12
+            JUMPING_HEIGHT = 14
 
 
 # ----------------------------------------------------------------------------------------#
@@ -348,6 +385,7 @@ def create_obstacles_third_level(image_string: str) -> DesignerObject:
     return obstacle
 
 
+# ----------------------------------------------------------------------------------------#
 def make_powerup_magnifying_glass(world: World):
     """
     This is function creates the Magnifying Glass Power-up(makes character bigger).
@@ -356,11 +394,9 @@ def make_powerup_magnifying_glass(world: World):
     Returns:
         Create the magnifying glass power-up which appears in the game but at random times.
     """
-    magic_number = 7
-    mystery_number = randint(0, 20)
     world_glass_list = world.magnifying_glass_list
     glass_list_length = len(world_glass_list)
-    if mystery_number == magic_number and glass_list_length < 2:
+    if randint(0, 20) == 7 and glass_list_length < 2:
         world_glass_list.append(create_power_up_second_level('magnify_power_up_transparent.png'))
         world.magnifying_glass_list = world_glass_list
 
@@ -373,11 +409,9 @@ def make_powerup_eraser(world: World):
     Returns:
         Create the eraser power-up which appears in the game but at random times.
     """
-    magic_number = 10
-    mystery_num = randint(0, 20)
     world_eraser_list = world.eraser_list
     eraser_list_length = len(world_eraser_list)
-    if mystery_num == magic_number and eraser_list_length < 2:
+    if randint(0, 20) == 10 and eraser_list_length < 2:
         world_eraser_list.append(create_power_up_second_level('new_eraser.png'))
         world.eraser_list = world_eraser_list
 
@@ -390,13 +424,66 @@ def make_tape_obstacle(world: World):
     Returns:
         Create the tape obstacle which appears in the game but at random times.
     """
-    magic_number = 12
-    mystery_number = randint(0, 20)
     world_list_tape = world.tape_list
     tape_list_length = len(world_list_tape)
-    if mystery_number == magic_number and tape_list_length < 2:
-        world_list_tape.append(create_obstacles_third_level('new_tape.png'))
+    if randint(1, 8) == 7 and tape_list_length < 5:
+        world_list_tape.append(create_random_tape_obstacles('new_tape.png'))
         world.tape_list = world_list_tape
+
+
+def create_random_tape_obstacles(image_string: str):
+    """
+    This is function will determine where the random tape obstacle will spawn. There are 5 different levels to the game.
+    Whichever random level gets chosen is where the tape will spawn.
+    Args:
+        image_string: The string name of the picture of the tape that will display to the user.
+    Returns:
+        This function will display the tape obstacles in random spots throughout the game.
+    """
+    obstacle = image(image_string)
+    obstacle.scale = .02
+    magic_number = randint(1, 5)
+    if magic_number == 1:
+        obstacle.x = randint(120, 553)
+        obstacle.y = 528
+        return obstacle
+    if magic_number == 2:
+        obstacle.x = randint(378, 530)
+        obstacle.y = 382
+        return obstacle
+    if magic_number == 3:
+        obstacle.x = 548
+        # obstacle.x = randint(400, 548)
+        obstacle.y = 305
+        return obstacle
+    if magic_number == 4:
+        obstacle.x = randint(267, 545)
+        obstacle.y = 185
+        return obstacle
+    if magic_number == 5:
+        obstacle.x = randint(295, 654)
+        obstacle.y = 60
+        return obstacle
+
+
+def teleport_obstacles(world: World):
+    """
+    I didn't have the time to implement moving tape obstacles. But I decided to come up with a different idea that
+    makes the game more fun. The tape obstacles will randomly spawn in random spots.
+    Args:
+        world: The World Dataclass
+    Returns:
+        This function will spawn and remove tape obstacles around the map to make the
+        game more enticing.
+    """
+    random_list = []
+    tape_list = world.tape_list
+    if len(tape_list) > 0:
+        if randint(1, 100) == 4:
+            random_tape_index = randint(0, len(tape_list) - 1)
+            tape_variable = tape_list[random_tape_index]
+            random_list.append(tape_variable)
+            world.tape_list = filter_from(world.tape_list, random_list)
 
 
 def clicking_coordinate(x: int, y: int):
@@ -418,9 +505,10 @@ def user_colliding_platform(world: World):
     global JUMPING_HEIGHT, GRAVITY
     for num, ladder in enumerate(world.ladder_list):
         if colliding(ladder, world.main_character.character_image):
-            if ladder.y - (ladder.height / 2) - 28 < world.main_character.character_image.y < ladder.y + (
-                    ladder.height / 2) + 5 and (ladder.x - 30) < world.main_character.character_image.x < (ladder.x + 30):
-                world.main_character.character_image.y -= 1
+            if (ladder.y - (ladder.height / 2) - 28 < world.main_character.character_image.y < ladder.y +
+                    (ladder.height / 2) + 5 and (ladder.x - 30) < world.main_character.character_image.x <
+                    (ladder.x + 30)):
+                world.main_character.character_image.y -= 5
         elif not colliding(ladder, world.main_character.character_image):
             if not round(world.main_character.character_image.y) >= 494:
                 pass
@@ -441,7 +529,7 @@ def user_colliding_magnify(world: World):
     destroyed_magnifying_glass = []
     for glass in world.magnifying_glass_list:
         if colliding(glass, world.main_character.character_image):
-            world.main_character.character_image.scale = 1.25
+            world.main_character.character_image.scale = .0275
             destroyed_magnifying_glass.append(glass)
     world.magnifying_glass_list = filter_from(world.magnifying_glass_list, destroyed_magnifying_glass)
 
@@ -460,7 +548,7 @@ def user_colliding_eraser(world: World):
     destroyed_eraser_list = []
     for eraser in world.eraser_list:
         if colliding(eraser, world.main_character.character_image):
-            world.main_character.character_image.scale = .75
+            world.main_character.character_image.scale = .015
             destroyed_eraser_list.append(eraser)
     world.eraser_list = filter_from(world.eraser_list, destroyed_eraser_list)
 
@@ -479,9 +567,20 @@ def user_colliding_tape_obstacle(world: World):
     destroyed_tape = []
     for tape in world.tape_list:
         if colliding(tape, world.main_character.character_image):
-            world.main_character.character_image.scale = 1.25
-            destroyed_tape.append(tape)
-    world.tape_list = filter_from(world.tape_list, destroyed_tape)
+            game_over()
+
+
+def user_colliding_crown(world: World):
+    """
+    This is function is checking if the user collides with the crown which will end with the user
+    'winning' the game
+    Args:
+        world: The World Dataclass
+    Returns:
+        This function will display the winning screen if the user hits the crown
+    """
+    if colliding(world.crown, world.main_character.character_image):
+        winning_game_over()
 
 
 def filter_from(old_list: list[DesignerObject], elements_to_not_keep: list[DesignerObject]) -> list[DesignerObject]:
@@ -503,19 +602,53 @@ def filter_from(old_list: list[DesignerObject], elements_to_not_keep: list[Desig
     return new_values
 
 
+# ----------------------------------------------------------------------------------------#
+
+def game_over():
+    """
+    This function pushes the Game Over screen
+
+    Returns:
+        Will display the Game Over Screen with the option to end the game
+    """
+    push_scene('game-over')
+
+
+def winning_game_over():
+    """
+    This function pushes the winner screen
+
+    Returns:
+        Will display the winner Screen with the option to end the game
+    """
+    push_scene('winning-screen')
+
+
+# ----------------------------------------------------------------------------------------#
+
 when('starting: world', create_world)
 when('clicking: world', handle_world_pause_button)
+
 when('starting: pause', create_pause_screen)
 when('clicking: pause', handle_pause_screen_buttons)
+
+when('starting: game-over', create_game_over_screen)
+when('clicking: game-over', handle_game_over_screen_buttons)
+
+when('starting: winning-screen', create_winner_screen)
+when('clicking: winning-screen', handle_winner_screen_buttons)
+
 when('typing: world', press_moving_keys)
 
 when('updating: world', make_powerup_magnifying_glass)
 when('updating: world', make_powerup_eraser)
 when('updating: world', make_tape_obstacle)
+when('updating: world', teleport_obstacles)
 when('updating: world', user_colliding_magnify)
 when('updating: world', user_colliding_eraser)
 when('updating: world', user_colliding_tape_obstacle)
 when('updating: world', user_colliding_platform)
+when('updating: world', user_colliding_crown)
 
 when('done typing: world', release_moving_keys)
 when('updating: world', handle_movement)
@@ -523,6 +656,5 @@ when('updating: world', border_restraining)
 
 when('clicking: world', clicking_coordinate)
 when('clicking: pause', handle_pause_screen_buttons)
-# when('updating', make_powerup)
 
 start()
